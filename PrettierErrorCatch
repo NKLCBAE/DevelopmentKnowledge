@@ -1,0 +1,30 @@
+
+//프리티어 오류 없애는 법
+//.eslintrc.js 파일, 혹은 package.json 파일에 rules 에 아래 내용 추가
+  rules: {
+    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "prettier/prettier": [
+      "error",
+      {
+        singleQuote: false,
+        semi: true,
+        tabWidth: 2,
+        trailingComma: "all",
+        printWidth: 80,
+        bracketSpacing: true,
+        arrowParens: "always",
+        endOfLine: "auto",
+        useTabs: false,
+      },
+    ],
+  },
+  
+ //그리고 Ctrl+A로 파일의 내용 전부 선택한 후 오른쪽 마우스 Format Document With.. 누르고 위쪽에서 Prettier 선택
+ 
+ // 또는 Ctrl+, 누르고 comma 검색 후 아래쪽에 있는 Prettier에서 es5<->all 선택 변경해보기. 어떤건 es5,어떤건 all이 됐는데 둘 다 해보고 되는걸로 선택
+ 
+ //최후의 방법 vscode에서 별 짓을 다해봐도 프리티어 오류가 안사라질 때 터미널에서 아래 코드 실행
+ 
+npm run lint --fix
+
